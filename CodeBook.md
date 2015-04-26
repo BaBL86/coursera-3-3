@@ -21,7 +21,7 @@ This script (run_analysis.R):
 
 > 66 measurement columns, 1 subject and 1 activity column.
 
-> The list of activities: `id` - `descriptive name`:
+> The list of *activities*: `id` - `descriptive name`:
 
 > | id |           descriptive name |
 | ------------- | -----:|
@@ -31,6 +31,8 @@ This script (run_analysis.R):
 > | 4 |           sitting |
 > | 5 |          standing |
 > | 6 |            laying |
+> 
+> The *measurement* columns are floating point values.
 > 
 
 - create a second, independent data set with the diaverage of each variable for each activity and each subject. To do this, we create an empty data set `avg_data` and fills row-by-row with calling `colMeans()` to original data.
