@@ -49,4 +49,25 @@ write.table(cleaned_set, "merged_clean_set.txt", row.name=FALSE)
 
 # From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+subj_uniq<-unique(subj_set)[,1]
+set_cols_num<-dim(cleaned_set)[2]
+
+# new data set contains cols with cleaned_set names
+avg_set<-cleaned_set[0,]
+
+counter<-1
+for (subj_iter in 1:length(subj_uniq)) {
+  for (activity_iter in 1:length(activity_labels[,1])) {
+    row_condition<-cleaned_set$subject==subj_iter & cleaned_set$activity==activity_labels[activity_iter, 2]
+    row<-cleaned_set[row_condition, ]
+
+    avg_set[counter, 1] = subj_uniq[subj_iter]
+    avg_set[counter, 2] = activity_labels[activity_iter, 2]
+    avg_set[counter, 3:set_cols_num] <- colMeans(row[, 3:set_cols_num])
+
+    counter<-counter+1
+  }
+}
+
+write.table(avg_set, "avg_data_set.txt", row.name=FALSE)
 
