@@ -1,10 +1,11 @@
-# Merges the training and the test sets to create one data set.
-
 # Change this path to your correct working directory with 
 # Human Activity Recognition Using Smartphones Dataset
 # and this script.
 
 setwd('/home/babl/coursera/Getting_and_Cleaning_Data/cp/coursera-3-3/')
+
+
+# Merges the training and the test sets to create one data set.
 
 x_train<-read.table("train/X_train.txt")
 x_test<-read.table("test/X_test.txt")
